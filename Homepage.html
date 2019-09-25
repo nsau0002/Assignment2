@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Ship Us Safe Web APP</title>
+		<!-- mdl -->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+        <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+        <script type="text/javascript" src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.1/mapbox-gl.js'></script>
+		<!-- css -->
+        <link rel="stylesheet" href="style.css">
+        <script src="htmlButtonFunctions.js"></script>
+	</head>
+	<body>
+		<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-tabs">
+		    <header class="mdl-layout__header">
+		        <div class="mdl-layout__header-row">
+                    <!-- Page Title -->
+                    <span class="mdl-layout-title">
+                    <a id="titleLogoLink">
+                    <b>Ship Us Safe</b>
+                    </a> 
+                    </span>
+		        </div>
+            </header>
+            <main class="mdl-layout__content">
+                <div class="row">
+                    <div class="column">
+                        <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button1" href="Tabs.html?callback=shipTabActive"><b>Ships</b></a><br>
+                        <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button1" href="Tabs.html?callback=portTabActive"><b>Ports</b></a><br>
+                        <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button1" href="Tabs.html?callback=routesTabActive"><b>Routes</b></a><br>
+                    </div>
+                    <div class="column" id="mapArea" class="page-block"></div>
+                </div>
+            </main>
+		</div>
+		<!-- link js -->
+        <script>
+        let mapAreaRef = document.getElementById('mapArea').innerHTML;
+                mapboxgl.accessToken = "pk.eyJ1IjoibnNhdTAwMDIiLCJhIjoiY2swZWV1MmNkMGg4czNtbnVxZGV2eGsyMiJ9.OBMhgNVonKnkmXNL0BehJw";
+                let map = new mapboxgl.Map({
+                    container: 'mapArea',
+                    center: [0,0],
+                    zoom: 1,
+                    style: 'mapbox://styles/mapbox/streets-v9'
+                });
+                mapAreaRef.innerHTML = map;
+        </script>
+    </body> 
+</html>

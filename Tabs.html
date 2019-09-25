@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Ship Us Safe Web APP</title>
+		<!-- mdl -->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+        <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+        <script type="text/javascript" src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.1/mapbox-gl.js'></script>
+        <script scr="htmlButtonFunctions.js"></script>
+		<!-- css -->
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-tabs">
+		  <header class="mdl-layout__header">
+		    <div class="mdl-layout__header-row">
+		        <!-- Page Title -->
+		        <span class="mdl-layout-title">
+                <a href="Homepage.html" class="button" id="titleLogoLink">
+                  <b>Ship Us Safe</b>
+                </a> 
+                </span>
+		    </div>
+		    <!-- Tabs Layout -->
+		    <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+		      <a href="#shipTab" class="mdl-layout__tab" id="tabDecShip">Ships</a>
+              <a href="#portTab" class="mdl-layout__tab" id="tabDecPort">Ports</a>
+              <a href="#routesTab" class="mdl-layout__tab" id="tabDecRoutes">Routes</a>
+	      	</div>
+		  </header>
+		  <main class="mdl-layout__content">
+        
+            <section class="mdl-layout__tab-panel" id="shipTab">
+                <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp fill40 table" id="shipsTable">
+                    <tr>
+                        <th>Name</th>
+                        <th>Max Speed</th>
+                        <th>Range</th>
+                        <th>Description</th>
+                        <th>Cost</th>
+                    </tr>
+                    <tr>
+                        <td>Shippy McShipface</td>
+                        <td>25 knots</td>
+                        <td>3000nm</td>
+                        <td>Panamax Cruise Ship</td>
+                        <td>$2000/nm</td>
+                    </tr>
+                </table>
+            </section>
+
+            <section class="mdl-layout__tab-panel" id="portTab">
+                <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp fill40 table" id="portTable">
+                    <tr>
+                        <th>Name</th>
+                        <th>Country</th>
+                        <th>Location</th>
+                        <th>Type</th>
+                        <th>Size</th>
+                    </tr>
+                    <tr>
+                        <td>Melbourne Dock</td>
+                        <td>Australia</td>
+                        <td>Melbourne</td>
+                        <td>Seaport</td>
+                        <td>Panamax</td>
+                    </tr>
+                </table>
+            </section>
+
+            <section class="mdl-layout__tab-panel" id="routesTab">
+                    <div class="row" id="routesMenu">
+                        <div class="column">
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button1"><b>My Old Routes</b></button><br>
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button1"><b>Change My Plans</b></button><br>
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect button1"><b>Plan a New Route</b></button><br>
+                        </div>
+                        <div class="column" id="mapArea" class="page-block">
+                        </div>
+                    </div>
+                
+            </section>
+        </main>
+		</div>
+		<!-- link js -->
+        <script>
+            let mapAreaRef = document.getElementById('mapArea').innerHTML;
+            mapboxgl.accessToken = "pk.eyJ1IjoibnNhdTAwMDIiLCJhIjoiY2swZWV1MmNkMGg4czNtbnVxZGV2eGsyMiJ9.OBMhgNVonKnkmXNL0BehJw";
+            let map = new mapboxgl.Map({
+                container: 'mapArea',
+                center: [0,0],
+                zoom: 1,
+                style: 'mapbox://styles/mapbox/streets-v9'
+            });
+            mapAreaRef.innerHTML = map;
+        </script>
+        <script src="htmlButtonFunctions.js"></script>
+	</body>
+</html>
